@@ -17,7 +17,7 @@ exports.ping = async (req, res) => {
 exports.login = async (req, res, next) => {
   try {
     const {
-      companyId, token: googleToken, email, password, role,
+      token: googleToken, email, password,
     } = req.body;
     const isExistOrg = await userService.checkInvitationCodeExists(companyId);
     if (isExistOrg === null || isExistOrg.name === undefined) throw new ResponseError(StatusCodes.BAD_REQUEST, 'Company ID Not Exists!');
